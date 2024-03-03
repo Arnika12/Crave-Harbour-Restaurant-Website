@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
     <?php  include 'admin_style.css'; ?>
 </style>
 <!DOCTYPE html>
@@ -11,6 +11,6 @@
     <title>Admin - Dashboard</title>
 </head>
 <body>
-<?php  include '../components/dark.php'; ?>
+    <?php include '../components/admin_header.php'; ?>
 </body>
 </html>
