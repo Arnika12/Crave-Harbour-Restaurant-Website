@@ -10,9 +10,6 @@
     if(!$conn){
         echo "Not Connected !!";
     }
-    else{
-        echo "Connected !!";
-    }
     function unique_id(){
         $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charLength = strLen($chars);
