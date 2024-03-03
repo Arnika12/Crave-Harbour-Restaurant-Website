@@ -8,7 +8,7 @@
     </div>
     <div class="profile-detail">
         <?php
-            $select_profile = $conn->prepare("SELECT * FROM admin where id=?");
+            $select_profile = $conn -> prepare("SELECT * FROM admin where id=?");
             $select_profile->execute([$admin_id]);
             if($select_profile -> rowCount() > 0 ){
                 $fetch_profile = $select_profile -> fetch(PDO:FETCH_ASSOC);
@@ -45,17 +45,17 @@
             <li><a href="add_posts.php"><i class="bx bxs-shopping-bags"></i>Add Products</a></li>
             <li><a href="view_post.php"><i class="bx bxs-food-menu"></i>View Products</a></li>
             <li><a href="user_accounts.php"><i class="bx bxs-user-detail"></i>Accounts</a></li>
-            <li><a href="../components/admin_logout.php" onclick="return confirm('logout from this website')"><i class="bx bx-log-out"></i>Log Outu</a></li>
+            <li><a href="../components/admin_logout.php" onclick="return confirm('logout from this website')"><i class="bx bx-log-out"></i>Log Out</a></li>
         </ul>
     </div>
 
     <h5>Find us</h5>
     <div class="social-links">
-        <i class="bx bx1-facebook></i>
-        <i class="bx bx1-instagram></i>
-        <i class="bx bx1-linkedin></i>
-        <i class="bx bx1-twitter></i>
-        <i class="bx bx1-pinterest-alt></i>
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-instagram-alt"></i>
+        <i class="bx bxl-linkedin"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-pinterest-alt"></i>
     </div>
     </div>
 </div>
