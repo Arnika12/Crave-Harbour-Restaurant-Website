@@ -1,3 +1,5 @@
+<!-- Database Connection file -->
+
 <?php
     $db_name = 'mysql:host=localhost;dbname=shop_db';
     $user_name='root';
