@@ -1,8 +1,10 @@
 
 <?php  
+    session_start();
+
     include '../components/connect.php'; 
 
-    session_start();
+    // session_start();
 
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
@@ -54,7 +56,7 @@
                             oninput="this.value.replace(/\s/g,'')">
                     </div>
                     <input type="submit" name="submit" value="Login now" class="btn">
-                    <p>Not member yet  <a href="admin_register.php">Register Now</a></p>
+                    <p><i class='bx bx-user-plus'></i><a href="admin_register.php">Register Admin</a></p>
                 </form>
             </div>
         </section>
