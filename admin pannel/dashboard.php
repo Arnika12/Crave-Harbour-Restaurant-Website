@@ -3,8 +3,6 @@
 session_start();
 
     include '../components/connect.php'; 
-    
-    //session_start();
 
     $admin_id = $_SESSION['admin_id'];
 
@@ -12,6 +10,11 @@ session_start();
         header('location:admin_login.php');
         exit;
     }
+    // Fetch admin profile data
+$select_profile = $conn->prepare("SELECT * FROM admin WHERE id = ?");
+$select_profile->execute([$admin_id]);
+$fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+?>
 ?>
 
 <style type="text/css">
@@ -35,7 +38,7 @@ session_start();
             <div class="box-container">
                 <div class="box">
                     <h3>Welcome !</h3>
-                    <p><? $fetch_profile['name']; ?></p>
+                    <p><?= $fetch_profile['name']; ?></p>
                     <a href="update_profile.php" class="btn">Update Profile</a>
                 </div>
                 <div class="box">
@@ -86,7 +89,7 @@ session_start();
                         $select_users = $conn->prepare("SELECT * FROM users");
                         $select_users->execute();
                         $number_of_users = $select_users->rowCount();
-                    ?> 
+                    ?>
                     <h3><?= $number_of_users; ?></h3>
                     <p>User Accounts</p>
                     <a href="user_accounts.php" class="btn">See users</a>
