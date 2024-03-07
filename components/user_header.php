@@ -1,3 +1,4 @@
+
 <div class="head">
     <header>
         <div class="logo">
@@ -17,14 +18,62 @@
              
                 if($select_profile->rowCount() > 0){
                     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-                }
+                
             ?>
             <div class="profile">
-                <img src="uploaded_img/<?= $fetch_profile['profile']; ?>">
+                <img src="uploaded_img/<?= $fetch_profile['profile']; ?>" class="logo-image">
                 <p><?= $fetch_profile['name']; ?></p>
             </div>
             <div class="flex-btn">
+                <a href="update_profile.php" class="btn" style="width:200px;">Update profile</a>
+                <form method="post">
+                    <button type="submit" name="logout" class="btn" style="width:150px;">Log out</button>
+                </form>
+            </div>
+            <?php }else{ ?>
+                <p class="name">please login or registered</p>
+                <div class="flex-btn">
+                    <a href="login.php" class="btn">login now</a>
+                    <a href="register.php" class="btn">register now</a>
+                </div>
+            <?php } ?>
+        </div>
+
+        <!-------------- side bar -------------->
+        <div class="sidebar">
+        <?php
+                $select_profile = $conn->prepare("SELECT * FROM users WHERE id=? ");
+                $select_profile->execute([$user_id]);
+             
+                if($select_profile->rowCount() > 0){
+                    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                 
+            ?>
+            <div class="profile">
+                <img src="uploaded_img/<?= $fetch_profile['profile']; ?>" class="logo-image">
+                <p><?= $fetch_profile['name']; ?></p>
+            </div>
+            <?php }else{ ?>
+                <img src="image/user.jpg" class="logo-image">
+                <h5>user </h5>
+            <?php } ?>
+            <h5>menu</h5>
+            <ul>
+                <li><a href="home.php"><i class="bx bxs-home-smile"></i>home</a></li>
+                <li><a href="about.php"><i class="bx bxs-shopping-bags"></i>about</a></li>
+                <li><a href="menu.php"><i class="bx bxs-food-menu"></i>menu</a></li>
+                <li><a href="contact.php"><i class="bx bxs-user-detail"></i>contact</a></li>
+                <li><a href="order.php"><i class="bx bxs-user-detail"></i>order</a></li>
+                <li><a href="register.php"><i class="bx bxs-user-detail"></i>register</a></li>
+                <li><a href="home.php" onclick="return confirm('logout from this website');"><i class="bx bx-log-out"></i>logout</a></li>
+            </ul>
+            <h5>Find us</h5>
+            <div class="social-links">
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-instagram-alt"></i>
+                <i class="bx bxl-linkedin"></i>
+                <i class="bx bxl-twitter"></i>
+                <i class="bx bxl-pinterest-alt"></i>
             </div>
         </div>
     </header>
