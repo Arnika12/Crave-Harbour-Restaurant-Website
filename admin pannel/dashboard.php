@@ -1,8 +1,9 @@
 
 <?php
-session_start();
 
-    include '../components/connect.php'; 
+
+    include '../components/connect.php';
+    session_start();
 
     $admin_id = $_SESSION['admin_id'];
 
@@ -148,6 +149,26 @@ $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                     <h3><?= $total_total_order; ?></h3>
                     <p>total orders</p>
                     <a href="admin_order.php" class="btn">all orders</a>
+                </div>
+                <div class="box">
+                    <?php
+                        $select_total_order = $conn->prepare("SELECT * FROM orders");
+                        $select_total_order->execute();
+                        $total_total_order = $select_total_order->rowCount();
+                    ?>
+                    <h3><?= $total_total_order; ?></h3>
+                    <p>total orders</p>
+                    <a href="admin_orders.php" class="btn">all orders</a>
+                </div>
+                <div class="box">
+                    <?php
+                        $select_reviews = $conn->execute("SELECT * FROM reviews");
+                        $select_reviews->execute();
+                        $num_of_reviews = $select_reviews->rowCount();
+                    ?>
+                    <h3><?= $num_of_reviews; ?></h3>
+                    <p>total reviews</p>
+                    <a href="comments.php" class="btn">see reviews</a>
                 </div>
             </div>
         </section>

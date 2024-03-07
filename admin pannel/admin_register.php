@@ -41,6 +41,9 @@ if($admin_id){
                 $insert_admin->execute([$name, $email, $cpass, $image]);
                 move_uploaded_file($image_tmp_name, $image_folder);
                 $success_msg[] = "New Admin registered successfully !";
+
+                header('location:admin_login.php');
+                exit();
             }
         }
     }

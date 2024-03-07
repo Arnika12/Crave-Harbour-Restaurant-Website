@@ -594,6 +594,55 @@ form span{
 .order-container .box-container .box .detail span{
     text-transform: none;
 }
+/* --------- delete review ---------- */
+.review-container .box-container .box .detail{
+    border-radius: .5rem;
+    padding: 1.5rem;
+    position: relative;
+}
+.review-container .box-container .box .ratings{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    color: var(--orange);
+    font-size: 2rem;
+    padding: .2rem;
+    border-radius: .5rem;
+}
+.review-container .box-container .box .user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.review-container .box-container .box .user img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: .5rem;
+    box-shadow: var(--inner-box-shadow);
+}
+.review-container .box-container .box .user p{
+    color: var(--lightgray);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: .2rem;
+}
+.review-container .box-container .box .user span{
+    color: var(--orange);
+}
+.review-container .box-container .box .title{
+    color: green;
+    text-transform: capitalize;
+    margin: 1rem 0;
+}
+.review-container .box-container .box .description{
+    font-size: 1rem;
+    color: var(--lightgray);
+    line-height: 2;
+    white-space: pre-line;
+    margin-bottom: 1rem;
+}
 
 /* --------- media screen ---------- */
 @media screen and (max-width: 991px){
