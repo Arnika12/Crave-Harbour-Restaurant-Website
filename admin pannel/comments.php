@@ -44,7 +44,7 @@
 <body>
     <div class="main-container">
         <?php  include '../components/admin_header.php'; ?>
-        <section class="reviews-container>
+        <section class="reviews-container">
             <h1 class="heading"> user's reviews </h1>
             <div class="box-container">
             <?php 

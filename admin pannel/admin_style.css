@@ -643,7 +643,34 @@ form span{
     white-space: pre-line;
     margin-bottom: 1rem;
 }
-
+/* --------- user account ---------- */
+.accounts .box-container{
+    margin-top: 3rem;
+}
+.accounts .box-container .box{
+    text-align: center;
+    padding: 2rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
+    line-height: 2;
+    color: var(--lightgray);
+    margin-bottom: 4rem;
+}
+.accounts .box-container .box:hover{
+    box-shadow: var(--outer-shadow);
+}
+.accounts .box-container .box span{
+    text-transform: none;
+}
+.accounts .box-container .box img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: var(--inner-box-shadow);
+    padding: .5rem;
+    margin-top: -5rem;
+    margin-bottom: 1rem;
+}
 /* --------- media screen ---------- */
 @media screen and (max-width: 991px){
     .toggle-btn{
