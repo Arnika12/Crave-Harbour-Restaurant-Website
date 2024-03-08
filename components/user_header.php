@@ -31,10 +31,10 @@
                 </form>
             </div>
             <?php }else{ ?>
-                <p class="name">please login or registered</p>
+                <p class="name">please login or register</p>
                 <div class="flex-btn">
-                    <a href="login.php" class="btn">login now</a>
-                    <a href="register.php" class="btn">register now</a>
+                    <a href="login.php" class="btn">login </a>
+                    <a href="register.php" class="btn">register </a>
                 </div>
             <?php } ?>
         </div>
@@ -54,8 +54,10 @@
                 <p><?= $fetch_profile['name']; ?></p>
             </div>
             <?php }else{ ?>
-                <img src="image/user.jpg" class="logo-image">
-                <h5>user </h5>
+                <div class="profile">
+                    <img src="image/user.png" class="logo-image">
+                    <p>user </p>
+                </div>
             <?php } ?>
             <h5>menu</h5>
             <ul>
