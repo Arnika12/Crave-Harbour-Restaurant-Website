@@ -4,5 +4,5 @@
     session_start();
     session_unset();
     session_destroy();
-    header('location:../admin pannel/admin_login.php');
+    header('location:../adminpannel/admin_login.php');
 ?>

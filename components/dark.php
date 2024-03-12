@@ -2,7 +2,7 @@
 <div class="day-night">
     <i class="bx"></i>
 </div>
-<script>
+<script type="text/javascript">
     const datNight = document.querySelector('.day-night');
 
     datNight.addEventListener('click', () => {

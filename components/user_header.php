@@ -1,4 +1,3 @@
-
 <div class="head">
     <header>
         <div class="logo">
@@ -13,12 +12,17 @@
         <!-- ------------ profile detail ------------ -->
         <div class="profile-detail">
             <?php
-                $select_profile = $conn->prepare("SELECT * FROM users WHERE id=? ");
-                $select_profile->execute([$user_id]);
-             
-                if($select_profile->rowCount() > 0){
-                    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-                
+                include 'connect.php'; // Include the file containing database connection code
+                session_start();
+
+                // Check if the "user_id" session variable is set
+                if(isset($_SESSION['user_id'])) {
+                    $user_id = $_SESSION['user_id'];
+                    $select_profile = $conn->prepare("SELECT * FROM users WHERE id=? ");
+                    $select_profile->execute([$user_id]);
+
+                    if($select_profile->rowCount() > 0){
+                        $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
             ?>
             <div class="profile">
                 <img src="uploaded_img/<?= $fetch_profile['profile']; ?>" class="logo-image">
@@ -30,24 +34,28 @@
                     <button type="submit" name="logout" class="btn" style="width:150px;">Log out</button>
                 </form>
             </div>
-            <?php }else{ ?>
-                <p class="name">please login or register</p>
+            <?php } else { ?>
+                <p class="name">Please login or register</p>
                 <div class="flex-btn">
-                    <a href="login.php" class="btn">login </a>
-                    <a href="register.php" class="btn">register </a>
+                    <a href="login.php" class="btn">Login</a>
+                    <a href="register.php" class="btn">Register</a>
+                </div>
+            <?php } ?>
+            <?php } else { ?>
+                <p class="name">Please login or register</p>
+                <div class="flex-btn">
+                    <a href="login.php" class="btn">Login</a>
+                    <a href="register.php" class="btn">Register</a>
                 </div>
             <?php } ?>
         </div>
 
         <!-------------- side bar -------------->
         <div class="sidebar">
-        <?php
-                $select_profile = $conn->prepare("SELECT * FROM users WHERE id=? ");
-                $select_profile->execute([$user_id]);
-             
-                if($select_profile->rowCount() > 0){
-                    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-                
+            <?php
+                // You don't need to repeat the same code block again for the sidebar, 
+                // You can use the $fetch_profile variable if it's available
+                if(isset($fetch_profile)){
             ?>
             <div class="profile">
                 <img src="uploaded_img/<?= $fetch_profile['profile']; ?>" class="logo-image">
@@ -67,7 +75,7 @@
                 <li><a href="contact.php"><i class="bx bxs-user-detail"></i>contact</a></li>
                 <li><a href="order.php"><i class="bx bxs-user-detail"></i>order</a></li>
                 <li><a href="register.php"><i class="bx bxs-user-detail"></i>register</a></li>
-                <li><a href="home.php" onclick="return confirm('logout from this website');"><i class="bx bx-log-out"></i>logout</a></li>
+                <li><a href="logout.php" onclick="return confirm('logout from this website');"><i class="bx bx-log-out"></i>logout</a></li>
             </ul>
             <h5>Find us</h5>
             <div class="social-links">

@@ -1,10 +1,21 @@
+<?php
+    include 'connect.php'; // Include the file containing database connection code
+    
+    // Now you can use $conn to execute database queries
+    
+    $select_products = $conn->prepare("SELECT * FROM products LIMIT 6");
+    $select_products->execute();
+    
+    // Rest of your code...
+?>
+
+
 <div class="box-container">
 <?php
-    $select_products = $conn->prepare ("SELECT * FROM products LIMIT 6");
+    $select_products = $conn->prepare("SELECT * FROM products LIMIT 6");
     $select_products->execute();
-    if ($select_products->rowCount() > 0 ) {
-        while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
-
+    if ($select_products->rowCount() > 0) {
+        while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
 <form action="" method="post" class="box">
@@ -14,11 +25,11 @@
         <div>
             <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
             <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-            <a href="view_page.php?pid=<?= echo $fetch_products['id']; ?>" class="bx bxs-show"></a>
+            <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="bx bxs-show"></a>
         </div>
     </div>
-    <p class="price" >price $<?= $fetch_products ['price']; ?</p
-    <input type="hidden" name="product_id" value="<?= $fetch_products ['id']; ?>">
+    <p class="price">price $<?= $fetch_products['price']; ?></p>
+    <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
     <div class="flex-btn">
         <a href="checkout.php?get_id=<?= $fetch_products['id']; ?>" class="btn">buy now</a>
         <input type="number" name="qty" required min="1" value="1" max="99" maxlength="2" class="qty">
@@ -27,8 +38,8 @@
 
 <?php
         }
-    }else{
-        echo'
+    } else {
+        echo '
             <div class="empty">
                 <p>no products added yet!</p>
             </div>
